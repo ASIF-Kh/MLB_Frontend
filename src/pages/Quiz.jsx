@@ -17,14 +17,10 @@ const QuizPage = () => {
 
   const fetchQuestions = async () => {
     try {
-      const response = await axios.post(
-        `${baseurl}/api/question/`,
-        {
-          topic: [league, team, player],
-          difficulty: "medium",
-        },
-        { timeout: 10000 }
-      );
+      const response = await axios.post(`${baseurl}/api/question/`, {
+        topic: [league, team, player],
+        difficulty: "medium",
+      });
       setQuestions(JSON.parse(response.data));
       setIsLoading(false);
     } catch (err) {
