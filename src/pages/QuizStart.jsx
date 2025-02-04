@@ -23,21 +23,6 @@ const QuizStart = ({ user_id }) => {
   const [teams, setTeams] = useState([]);
   const [players, setPlayers] = useState([]);
 
-  // // Mock data - replace with actual data from API
-  // const leagues1 = ["MLB", "NPB", "KBO", "LMB"];
-  // const teams = [
-  //   "New York Yankees",
-  //   "Boston Red Sox",
-  //   "Los Angeles Dodgers",
-  //   "Chicago Cubs",
-  // ];
-  // const players = [
-  //   "Aaron Judge",
-  //   "Shohei Ohtani",
-  //   "Mike Trout",
-  //   "Mookie Betts",
-  // ];
-
   const getTeamsId = (teamName) => {
     const team = teams.find((team) => team.name === teamName);
     return team.id;
@@ -51,7 +36,6 @@ const QuizStart = ({ user_id }) => {
       );
       const data = await response.json();
       setPlayers(data.roster);
-      console.log(data.roster);
     } catch (error) {
       console.error("Error:", error);
     }
@@ -198,8 +182,6 @@ const QuizStart = ({ user_id }) => {
           </button>
         </div>
       </div>
-
-      {/* ... (keep previous header and main content sections) */}
     </>
   );
 };

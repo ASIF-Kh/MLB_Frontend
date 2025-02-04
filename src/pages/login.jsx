@@ -14,7 +14,7 @@ const AuthForm = () => {
   const loginhandle = () => {
     let userid = null;
     console.log("Logging in...");
-    console.log({ username, password });
+
     axios
       .post(`${baseurl}/api/login/`, {
         username: username,
@@ -22,7 +22,6 @@ const AuthForm = () => {
       })
       .then((response) => response.data)
       .then((data) => {
-        console.log(data.user_id);
         navigate("/home", { state: { id: data.user_id } });
       })
       .catch((error) => {
@@ -31,15 +30,10 @@ const AuthForm = () => {
           console.log(error.response);
         }
       });
-
-    // console.log(userid);
-
-    // navigate("/home", { state: { id: 123 } });
   };
 
   const signuphandle = () => {
     console.log("Signing up...");
-    console.log({ username, email, password });
     axios
       .post(`${baseurl}/api/users/`, {
         username: username,
@@ -50,7 +44,6 @@ const AuthForm = () => {
       })
       .then((response) => response.data)
       .then((data) => {
-        console.log(data.user_id);
         navigate("/home", { state: { id: data.user_id } });
       })
       .catch((error) => {

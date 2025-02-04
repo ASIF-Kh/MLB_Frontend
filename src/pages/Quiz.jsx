@@ -22,11 +22,9 @@ const QuizPage = () => {
         difficulty: "Easy",
       });
       setQuestions(JSON.parse(response.data));
-      console.log(JSON.parse(response.data));
     } catch (err) {
       console.log(err);
     } finally {
-      console.log(`done`);
       setIsLoading(false);
     }
   };

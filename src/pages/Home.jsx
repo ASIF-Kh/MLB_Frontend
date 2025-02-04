@@ -43,7 +43,7 @@ const HomePage = () => {
       .then((response) => response.data)
       .then((data) => {
         setcurrentUser(data[0]);
-        console.log(`currentuser:${currentUser}`);
+        // console.log(`currentuser:${currentUser}`);
       })
       .catch((error) => {
         console.log("Error fetching user data");
@@ -65,9 +65,8 @@ const HomePage = () => {
       })
       .catch((error) => {
         alert("Error fetching leaderboard");
-        // console.log(error);
+        console.log(error);
       });
-
   }, []);
 
   useEffect(() => {
