@@ -19,13 +19,14 @@ const QuizPage = () => {
     try {
       const response = await axios.post(`${baseurl}/api/question/`, {
         topic: [league, team, player],
-        difficulty: "Easy",
+        difficulty: "medium",
       });
       setQuestions(JSON.parse(response.data));
+      setIsLoading(false);
     } catch (err) {
       console.log(err);
-    } finally {
-      setIsLoading(false);
+      alert("Error fetching questions");
+      navigate("/home", { state: { id: user_id } });
     }
   };
 
